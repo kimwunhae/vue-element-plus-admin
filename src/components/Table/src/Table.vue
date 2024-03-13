@@ -26,31 +26,31 @@ export default defineComponent({
   props: {
     pageSize: propTypes.number.def(10),
     currentPage: propTypes.number.def(1),
-    // 是否展示表格的工具栏
+    // Whether to display the toolbar of the form
     showAction: propTypes.bool.def(false),
-    // 是否所有的超出隐藏，优先级低于schema中的showOverflowTooltip,
+    // Whether it exceeds hidden, priority is lower than SHOWOOVERFLOWTOOLTIP in SHOWOR,
     showOverflowTooltip: propTypes.bool.def(true),
-    // 表头
+    // Head
     columns: {
       type: Array as PropType<TableColumn[]>,
       default: () => []
     },
-    // 是否展示分页
+    // Whether to show paging
     pagination: {
       type: Object as PropType<Pagination>,
       default: (): Pagination | undefined => undefined
     },
-    // 仅对 type=selection 的列有效，类型为 Boolean，为 true 则会在数据更新之后保留之前选中的数据（需指定 row-key）
+    // Only the column of Type = selection is valid, and the type is Boolean. For TRUE, the data selected before after the data is updated (required to specify Row-Key)
     reserveSelection: propTypes.bool.def(false),
-    // 加载状态
+    // Loading status
     loading: propTypes.bool.def(false),
-    // 是否叠加索引
+    // Whether to overlap the index
     reserveIndex: propTypes.bool.def(false),
-    // 对齐方式
+    // Alignment
     align: propTypes.string
       .validate((v: string) => ['left', 'center', 'right'].includes(v))
       .def('left'),
-    // 表头对齐方式
+    // Method
     headerAlign: propTypes.string
       .validate((v: string) => ['left', 'center', 'right'].includes(v))
       .def('left'),
@@ -58,12 +58,12 @@ export default defineComponent({
       type: Array as PropType<Recordable[]>,
       default: () => []
     },
-    // 图片自动预览字段数组
+    // Picture automatic preview field array
     imagePreview: {
       type: Array as PropType<string[]>,
       default: () => []
     },
-    // 视频自动预览字段数组
+    // Video automatic preview field array
     videoPreview: {
       type: Array as PropType<string[]>,
       default: () => []
@@ -192,7 +192,7 @@ export default defineComponent({
     },
     scrollbarAlwaysOn: propTypes.bool.def(false),
     flexible: propTypes.bool.def(false),
-    // 自定义内容
+    // Custom content
     customContent: propTypes.bool.def(false),
     cardBodyStyle: {
       type: Object as PropType<CSSProperties>,
@@ -215,7 +215,7 @@ export default defineComponent({
   setup(props, { attrs, emit, slots, expose }) {
     const elTableRef = ref<ComponentRef<typeof ElTable>>()
 
-    // 注册
+    // register
     onMounted(() => {
       const tableRef = unref(elTableRef)
       emit('register', tableRef?.$parent, elTableRef)
@@ -225,7 +225,7 @@ export default defineComponent({
 
     const currentPageRef = ref(props.currentPage)
 
-    // useTable传入的props
+    // PROPS passed into useTable
     const outsideProps = ref<TableProps>({})
 
     const mergeProps = ref<TableProps>({})

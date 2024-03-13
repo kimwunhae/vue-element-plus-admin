@@ -129,7 +129,7 @@ export interface SelectOption {
 
 export interface SelectComponentProps extends Omit<Partial<ISelectProps>, 'options'> {
   /**
-   * 数据源的字段别名
+   * Data source field aliases
    */
   props?: {
     key?: string
@@ -305,7 +305,7 @@ export interface RadioGroupComponentProps extends Partial<RadioGroupProps> {
 export interface RadioButtonComponentProps extends Partial<RadioButtonProps> {
   options?: RadioOption[]
   /**
-   * 数据源的字段别名
+   * Data source field aliases
    */
   props?: {
     label?: string
@@ -342,7 +342,7 @@ export interface CheckboxOption {
 export interface CheckboxGroupComponentProps extends Partial<CheckboxGroupProps> {
   options?: CheckboxOption[]
   /**
-   * 数据源的字段别名
+   * Data source field aliases
    */
   props?: {
     label?: string
@@ -588,22 +588,22 @@ export interface TreeSelectComponentProps
 
 export interface FormSchema {
   /**
-   * 唯一标识
+   * Uniquely identifies
    */
   field: string
 
   /**
-   * 标题
+   * title
    */
   label?: string
 
   /**
-   * col组件属性
+   * column attribute
    */
   colProps?: ColProps
 
   /**
-   * 表单组件属性，具体可以查看element-plus文档
+   * Form component attribute, you can view the Element-Plus document specifically
    */
   componentProps?:
     | InputComponentProps
@@ -630,32 +630,32 @@ export interface FormSchema {
     | any
 
   /**
-   * formItem组件属性，具体可以查看element-plus文档
+   * FormITEM component attribute, you can view the Element-Plus document specifically
    */
   formItemProps?: FormItemProps
 
   /**
-   * 渲染的组件名称
+   * Rendering component name
    */
   component?: ComponentName
 
   /**
-   * 初始值
+   * Initial value
    */
   value?: any
 
   /**
-   * 是否隐藏，如果为true，会连同值一同删除，类似v-if
+   * Whether it is hidden, if it is True, it will be deleted together with the same value, similar to V-IF
    */
   remove?: boolean
 
   /**
-   * 样式隐藏，不会把值一同删掉，类似v-show
+   * The style is hidden, and the value will not be deleted together, similar to V-SHOW
    */
   hidden?: boolean
 
   /**
-   * @returns 远程加载下拉项
+   * @returns Remote loading drop item
    */
   optionApi?: any
 }

@@ -23,7 +23,7 @@ const props = defineProps({
 
 const handleClose = async (tag: any) => {
   const formData = await getFormData()
-  // 删除对应的权限
+  // Delete the corresponding permissions
   setValues({
     permissionList: formData?.permissionList?.filter((v: any) => v.value !== tag.value)
   })

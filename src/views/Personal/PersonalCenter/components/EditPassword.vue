@@ -90,7 +90,7 @@ const save = async () => {
       .then(async () => {
         try {
           saveLoading.value = true
-          // 这里可以调用修改密码的接口
+          // Here you can call the interface of the modification password
           ElMessage.success('修改成功')
         } catch (error) {
           console.log(error)

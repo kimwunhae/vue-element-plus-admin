@@ -39,7 +39,7 @@ const wrapWidth = ref(0)
 
 const loadMore = ref<HTMLDivElement>()
 
-// 首先确定列数 = 页面宽度 / 图片宽度
+// First determine the number of columns = page width / picture width
 const innerCols = ref(0)
 
 const filterData = ref<any[]>([])
@@ -64,11 +64,11 @@ const filterWaterfall = async () => {
         left: i * (width + gap)
       })
     } else {
-      // 其他行，先找出最矮的那一列 和 索引
-      // 假设最小高度是第一个元素
+      // In other lines, first find the shortest column and index
+      // Assuming the minimum height is the first element
       let minHeight = heights.value[0]
       let index = 0
-      // 找出最小高度
+      // Find the minimum height
       for (let j = 1; j < unref(innerCols); j++) {
         if (unref(heights)[j] < minHeight) {
           minHeight = unref(heights)[j]
@@ -76,7 +76,7 @@ const filterWaterfall = async () => {
         }
       }
 
-      // 更新最矮高度
+      // Update the shortest height
       heights.value[index] += data[i][props.height as string] + gap
       filterData.value.push({
         ...data[i],
@@ -99,9 +99,9 @@ const flexWaterfall = async () => {
   innerCols.value = prop.cols ?? Math.floor(container.clientWidth / (width + gap))
 
   const length = data.length
-  // 根据列数，创建数组
+  // According to the number of columns, create an array
   const arr = new Array(unref(innerCols)).fill([])
-  // 循环data，依次插入到arr中
+  // Cycle data, insert into ARR in turn
   for (let i = 0; i < length; i++) {
     const index = i % unref(innerCols)
     arr[index] = [...arr[index], data[i]]

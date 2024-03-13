@@ -1,6 +1,6 @@
 import type { App } from 'vue'
 
-// 需要全局引入一些组件，如ElScrollbar，不然一些下拉项样式有问题
+// It is necessary to introduce some components global, such as ElScrollbar, otherwise there are problems with some drop -down items
 import { ElLoading, ElScrollbar } from 'element-plus'
 
 const plugins = [ElLoading]
@@ -12,7 +12,7 @@ export const setupElementPlus = (app: App<Element>) => {
     app.use(plugin)
   })
 
-  // 为了开发环境启动更快，一次性引入所有样式
+  // In order to start the environment faster, all styles are introduced in one -time
   if (import.meta.env.VITE_USE_ALL_ELEMENT_PLUS_STYLE === 'true') {
     import('element-plus/dist/index.css')
     return

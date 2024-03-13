@@ -19,7 +19,7 @@ const loading = ref(true)
 
 const pieOptionsData = reactive<EChartsOption>(pieOptions) as EChartsOption
 
-// 用户来源
+// Source of user
 const getUserAccessSource = async () => {
   const res = await getUserAccessSourceApi().catch(() => {})
   if (res) {
@@ -39,7 +39,7 @@ const getUserAccessSource = async () => {
 
 const barOptionsData = reactive<EChartsOption>(barOptions) as EChartsOption
 
-// 周活跃量
+// Weekly active amount
 const getWeeklyUserActivity = async () => {
   const res = await getWeeklyUserActivityApi().catch(() => {})
   if (res) {
@@ -60,7 +60,7 @@ const getWeeklyUserActivity = async () => {
 
 const lineOptionsData = reactive<EChartsOption>(lineOptions) as EChartsOption
 
-// 每月销售总额
+// Total monthly sales
 const getMonthlySales = async () => {
   const res = await getMonthlySalesApi().catch(() => {})
   if (res) {

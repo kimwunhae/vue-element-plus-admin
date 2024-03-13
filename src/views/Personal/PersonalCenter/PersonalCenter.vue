@@ -10,7 +10,7 @@ import EditPassword from './components/EditPassword.vue'
 
 const userInfo = ref()
 const fetchDetailUserApi = async () => {
-  // 这里可以调用接口获取用户信息
+  // Here you can call the interface to get user information
   const data = {
     id: 1,
     username: 'admin',
@@ -35,7 +35,7 @@ const saveAvatar = async () => {
     avatarLoading.value = true
     const base64 = unref(uploadAvatarRef)?.getBase64()
     console.log(base64)
-    // 这里可以调用修改头像接口
+    // Here you can call and modify the avatar interface
     fetchDetailUserApi()
     ElMessage.success('修改成功')
     dialogVisible.value = false

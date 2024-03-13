@@ -28,7 +28,7 @@ const oldColumns = ref<TableColumn[]>()
 
 const settingColumns = ref<TableColumn[]>()
 
-// 存储不要的列
+// Store unwilling column
 const hiddenColumns = ref<TableColumn[]>([])
 
 const defaultCheckColumns = ref<string[]>([])

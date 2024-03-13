@@ -1,7 +1,7 @@
 /**
  *
- * @param component 需要注册的组件
- * @param alias 组件别名
+ * @param component Components that need to be registered
+ * @param alias component alias
  * @returns any
  */
 export const withInstall = <T>(component: T, alias?: string) => {
@@ -16,16 +16,16 @@ export const withInstall = <T>(component: T, alias?: string) => {
 }
 
 /**
- * @param str 需要转下划线的驼峰字符串
- * @returns 字符串下划线
+ * @param str Need to turn down the hump string
+ * @returns Strike underline
  */
 export const humpToUnderline = (str: string): string => {
   return str.replace(/([A-Z])/g, '-$1').toLowerCase()
 }
 
 /**
- * @param str 需要转驼峰的下划线字符串
- * @returns 字符串驼峰
+ * @param str Need to turn the drooped string of the hump peak
+ * @returns String hump
  */
 export const underlineToHump = (str: string): string => {
   if (!str) return ''
@@ -35,7 +35,7 @@ export const underlineToHump = (str: string): string => {
 }
 
 /**
- * 驼峰转横杠
+ * Catalum turning
  */
 export const humpToDash = (str: string): string => {
   return str.replace(/([A-Z])/g, '-$1').toLowerCase()
@@ -50,9 +50,9 @@ export const getCssVar = (prop: string, dom = document.documentElement) => {
 }
 
 /**
- * 查找数组对象的某个下标
- * @param {Array} ary 查找的数组
- * @param {Functon} fn 判断的方法
+ * Find a certain bid in the array object
+ * @param {Array} ary Find array
+ * @param {Functon} fn Method of judgment
  */
 // eslint-disable-next-line
 export const findIndex = <T = Recordable>(ary: Array<T>, fn: Fn): number => {
@@ -75,8 +75,8 @@ export const trim = (str: string) => {
 }
 
 /**
- * @param {Date | number | string} time 需要转换的时间
- * @param {String} fmt 需要转换的格式 如 yyyy-MM-dd、yyyy-MM-dd HH:mm:ss
+ * @param {Date | number | string} time Time to be converted
+ * @param {String} fmt Formats that need to be converted, such as Yyyy-MM-DD, YYYY-MM-DD HH: MM: SS
  */
 export function formatTime(time: Date | number | string, fmt: string) {
   if (!time) return ''
@@ -107,7 +107,7 @@ export function formatTime(time: Date | number | string, fmt: string) {
 }
 
 /**
- * 生成随机字符串
+ * Generate random string
  */
 export function toAnyString() {
   const str: string = 'xxxxx-xxxxx-4xxxx-yxxxx-xxxxx'.replace(/[xy]/g, (c: string) => {
@@ -119,14 +119,14 @@ export function toAnyString() {
 }
 
 /**
- * 首字母大写
+ * First letters
  */
 export function firstUpperCase(str: string) {
   return str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase())
 }
 
 /**
- * 把对象转为formData
+ * Turn the object to FormData
  */
 export function objToFormData(obj: Recordable) {
   const formData = new FormData()

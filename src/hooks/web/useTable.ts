@@ -7,7 +7,7 @@ const { t } = useI18n()
 
 interface UseTableConfig {
   /**
-   * 是否初始化的时候请求一次
+   * Do you request once when you initialize
    */
   immediate?: boolean
   fetchDataApi: () => Promise<{
@@ -36,7 +36,7 @@ export const useTable = (config: UseTableConfig) => {
   watch(
     () => pageSize.value,
     () => {
-      // 当前页不为1时，修改页数后会导致多次调用getList方法
+      // When the current page is not 1, after the number of modification pages, it will cause the getlist method multiple times
       if (unref(currentPage) === 1) {
         methods.getList()
       } else {
@@ -52,10 +52,10 @@ export const useTable = (config: UseTableConfig) => {
     }
   })
 
-  // Table实例
+  // Table instance
   const tableRef = ref<typeof Table & TableExpose>()
 
-  // ElTable实例
+  // Eltable instance
   const elTableRef = ref<ComponentRef<typeof ElTable>>()
 
   const register = (ref: typeof Table & TableExpose, elRef: ComponentRef<typeof ElTable>) => {
@@ -74,7 +74,7 @@ export const useTable = (config: UseTableConfig) => {
 
   const methods = {
     /**
-     * 获取表单数据
+     * Get the form data
      */
     getList: async () => {
       loading.value = true
@@ -93,8 +93,8 @@ export const useTable = (config: UseTableConfig) => {
     },
 
     /**
-     * @description 设置table组件的props
-     * @param props table组件的props
+     * @description Set the props of the table component
+     * @param props PROPS of table components
      */
     setProps: async (props: TableProps = {}) => {
       const table = await getTable()
@@ -102,8 +102,8 @@ export const useTable = (config: UseTableConfig) => {
     },
 
     /**
-     * @description 设置column
-     * @param columnProps 需要设置的列
+     * @description Set column
+     * @param columnProps Columns that need to be set
      */
     setColumn: async (columnProps: TableSetProps[]) => {
       const table = await getTable()
@@ -111,9 +111,9 @@ export const useTable = (config: UseTableConfig) => {
     },
 
     /**
-     * @description 新增column
-     * @param tableColumn 需要新增数据
-     * @param index 在哪里新增
+     * @description New COLUMN
+     * @param tableColumn Need to add data
+     * @param index Where to add
      */
     addColumn: async (tableColumn: TableColumn, index?: number) => {
       const table = await getTable()
@@ -121,8 +121,8 @@ export const useTable = (config: UseTableConfig) => {
     },
 
     /**
-     * @description 删除column
-     * @param field 删除哪个数据
+     * @description Delete colorn
+     * @param field Which data deletes
      */
     delColumn: async (field: string) => {
       const table = await getTable()
@@ -130,7 +130,7 @@ export const useTable = (config: UseTableConfig) => {
     },
 
     /**
-     * @description 获取ElTable组件的实例
+     * @description Examples to obtain ELTable components
      * @returns ElTable instance
      */
     getElTableExpose: async () => {
@@ -148,7 +148,7 @@ export const useTable = (config: UseTableConfig) => {
     //   dataList.value.splice(newIndex, 0, dataList.value.splice(oldIndex, 1)[0])
     //   // to do something
     // }
-    // 删除数据
+    // delete data
     delList: async (idsLength: number) => {
       const { fetchDelApi } = config
       if (!fetchDelApi) {
@@ -164,7 +164,7 @@ export const useTable = (config: UseTableConfig) => {
         if (res) {
           ElMessage.success(t('common.delSuccess'))
 
-          // 计算出临界点
+          // Calculate the critical point
           const current =
             unref(total) % unref(pageSize) === idsLength || unref(pageSize) === 1
               ? unref(currentPage) > 1

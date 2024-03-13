@@ -181,7 +181,7 @@ const schema = reactive<FormSchema[]>([
     field: 'field7',
     label: `${t('formDemo.treeSelect')}`,
     component: 'TreeSelect',
-    // 远程加载option
+    // Remote loading Option Option
     optionApi: async () => {
       const res = await getTreeSelectData()
       return res

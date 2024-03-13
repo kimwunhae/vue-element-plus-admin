@@ -13,9 +13,9 @@ const init = async (icon?: string) => {
   const iconInfo = icon.split(':')
   iconName.value = iconInfo[0]
   const wrapIndex = icons.findIndex((item) => item.prefix === iconInfo[0])
-  // 查询当前icon的索引
+  // Query the current icon's index
   const index = filterItemIcons(icons[wrapIndex].icons).findIndex((item) => item === icon)
-  // 计算当前icon的页码
+  // Calculate the page number of the current icon
   await nextTick()
   currentPage.value = Math.ceil((index + 1) / unref(pageSize))
 }
@@ -90,7 +90,7 @@ const popoverShow = () => {
 }
 
 const iconSelect = (icon: string) => {
-  // 如果是同一个icon则不做处理，则相当于点击了清空按钮
+  // If it is the same icon, it is not processed, it is equivalent to clicking the empty button
   if (icon === unref(modelValue)) {
     modelValue.value = ''
     return

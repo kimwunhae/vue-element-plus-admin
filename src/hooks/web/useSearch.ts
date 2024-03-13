@@ -3,12 +3,12 @@ import { FormSchema, FormSetProps } from '@/components/Form'
 import { SearchExpose, SearchProps } from '@/components/Search'
 
 export const useSearch = () => {
-  // Search实例
+  // Search instance
   const searchRef = ref<SearchExpose>()
 
   /**
-   * @param ref Search实例
-   * @param elRef ElForm实例
+   * @param ref Search instance
+   * @param elRef Elform instance
    */
   const register = (ref: SearchExpose) => {
     searchRef.value = ref
@@ -23,11 +23,11 @@ export const useSearch = () => {
     return search
   }
 
-  // 一些内置的方法
+  // Some built -in methods
   const methods = {
     /**
-     * @description 设置search组件的props
-     * @param field FormItem的field
+     * @description Set the PROPS of Search component
+     * @param field FormItem's Field
      */
     setProps: async (props: SearchProps = {}) => {
       const search = await getSearch()
@@ -38,8 +38,8 @@ export const useSearch = () => {
     },
 
     /**
-     * @description 设置form的值
-     * @param data 需要设置的数据
+     * @description Set the value of form
+     * @param data Data needed to be set
      */
     setValues: async (data: Recordable) => {
       const search = await getSearch()
@@ -47,8 +47,8 @@ export const useSearch = () => {
     },
 
     /**
-     * @description 设置schema
-     * @param schemaProps 需要设置的schemaProps
+     * @description Set SCHEMA
+     * @param schemaProps SCHEMAPROPS that needs to be set
      */
     setSchema: async (schemaProps: FormSetProps[]) => {
       const search = await getSearch()
@@ -56,9 +56,9 @@ export const useSearch = () => {
     },
 
     /**
-     * @description 新增schema
-     * @param formSchema 需要新增数据
-     * @param index 在哪里新增
+     * @description New SCHEMA
+     * @param formSchema Need to add data
+     * @param index Where to add
      */
     addSchema: async (formSchema: FormSchema, index?: number) => {
       const search = await getSearch()
@@ -66,8 +66,8 @@ export const useSearch = () => {
     },
 
     /**
-     * @description 删除schema
-     * @param field 删除哪个数据
+     * @description Delete SCHEMA
+     * @param field Which data deletes
      */
     delSchema: async (field: string) => {
       const search = await getSearch()
@@ -75,7 +75,7 @@ export const useSearch = () => {
     },
 
     /**
-     * @description 获取表单数据
+     * @description Get the form data
      * @returns form data
      */
     getFormData: async <T = Recordable>(): Promise<T> => {

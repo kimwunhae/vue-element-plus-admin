@@ -72,7 +72,7 @@ const getCropBoxStyle = computed(() => {
   }
 })
 
-// 获取对应的缩小倍数的宽高
+// Get the width of the corresponding reduction multiple
 const getScaleSize = (scale: number) => {
   return {
     width: props.cropBoxWidth * scale + 'px',
@@ -110,13 +110,13 @@ const intiCropper = () => {
 }
 
 const uploadChange = (uploadFile: UploadFile) => {
-  // 判断是否是图片
+  // Determine whether it is a picture
   if (uploadFile?.raw?.type.indexOf('image') === -1) {
     ElMessage.error('请上传图片格式的文件')
     return
   }
   if (!uploadFile.raw) return
-  // 获取图片的访问地址
+  // Get the access address of the picture
   const url = URL.createObjectURL(uploadFile.raw)
   unref(cropperRef)?.replace(url)
 }
